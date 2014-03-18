@@ -55,8 +55,7 @@ public class SampleJettyApplicationTests {
 
 	@Test
 	public void testHome() throws Exception {
-		ResponseEntity<String> entity = getRestTemplate().getForEntity(
-				"https://localhost:8443", String.class);
+		ResponseEntity<String> entity = getRestTemplate().getForEntity("https://localhost:8443/home", String.class);
 		assertEquals(HttpStatus.OK, entity.getStatusCode());
 		assertEquals("Hello World", entity.getBody());
 	}

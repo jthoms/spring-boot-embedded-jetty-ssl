@@ -13,7 +13,7 @@ public class SampleController {
 	@Autowired
 	private HelloWorldService helloWorldService;
 
-	@RequestMapping("/")
+	@RequestMapping("/home")
 	@ResponseBody
 	public String helloWorld() {
 		return this.helloWorldService.getHelloMessage();

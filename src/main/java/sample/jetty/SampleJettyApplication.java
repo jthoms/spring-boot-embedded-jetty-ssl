@@ -7,7 +7,7 @@ import org.eclipse.jetty.util.ssl.SslContextFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainerFactory;
+import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
 import org.springframework.boot.context.embedded.jetty.JettyEmbeddedServletContainerFactory;
 import org.springframework.boot.context.embedded.jetty.JettyServerCustomizer;
@@ -35,7 +35,7 @@ public class SampleJettyApplication {
         
         return new EmbeddedServletContainerCustomizer() {
             @Override
-            public void customize(ConfigurableEmbeddedServletContainerFactory factory) {
+            public void customize(ConfigurableEmbeddedServletContainer factory) {
                 Assert.state(factory instanceof JettyEmbeddedServletContainerFactory, "Use Jetty for this server");
                 JettyEmbeddedServletContainerFactory jettyFactory = (JettyEmbeddedServletContainerFactory) factory;
                 jettyFactory.addServerCustomizers(new JettyServerCustomizer() {
